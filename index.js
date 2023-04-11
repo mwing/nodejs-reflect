@@ -10,9 +10,7 @@ app.get('/', function(req, res) {
 
 app.get('/store/*', function(req, res) {
   results.push(req.url)
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end("OK");
+  res.redirect(302, "https://www.google.com");
 });
 
 app.get('/results', function(req, res) {
