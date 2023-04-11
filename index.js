@@ -1,12 +1,24 @@
-const http = require('http');
-const PORT = 3000;
+const express = require('express');
+const app = express();
+const results = [];
 
-const server = http.createServer((req, res) => {
+app.get('/', function(req, res) {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World!');
+  res.end("Nothing here");
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
+app.get('/store/*', function(req, res) {
+  results.push(req.url)
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end("OK");
 });
+
+app.get('/results', function(req, res) {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end(JSON.stringify(results));
+});
+
+app.listen(3000);
