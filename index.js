@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const results = [];
+var results = [];
 
 app.get('/', function(req, res) {
   res.statusCode = 200;
