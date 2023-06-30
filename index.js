@@ -17,7 +17,9 @@ app.get('/clear', function(req, res) {
 
 
 app.get('/store/*', function(req, res) {
-  results.push(req.url)
+  const url = req.url;
+  const data = (atob(url.split('/store/')[1].split('/')[1].split('.jpg')[0])
+  results.push(data)
   res.redirect(302, "https://www.google.com");
 });
 
