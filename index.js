@@ -29,4 +29,10 @@ app.get('/results', function(req, res) {
     res.end(JSON.stringify(results));
 });
 
+app.get('/exfil', function(req, res) {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end(JSON.parse(atob(results.join("")));
+});
+
 app.listen(3000);
